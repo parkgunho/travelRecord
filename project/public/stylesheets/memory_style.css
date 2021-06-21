@@ -1,0 +1,379 @@
+@import url('https://fonts.googleapis.com/css2?family=Gochi+Hand&family=Tenali+Ramakrishna&display=swap');
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 35%;
+}
+
+/* 지도 내 대륙 */
+g
+{
+  fill: #3F3F41;                    /* 대륙 */
+  fill-opacity: 1;
+  fill-rule:evenodd;
+  stroke:#3F3F41;                   /* 경계 색*/
+  stroke-opacity: 1;
+  stroke-width:0.5;
+
+}
+
+
+/* 전체 틀 */
+figure{
+  width:75%;
+  /* height:80%; */
+  position:absolute;
+  top:40%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  margin:0;
+}
+
+/* 지도 내 각 대륙 */
+path{
+
+  cursor:pointer;
+  position: relative;
+  z-index:1;
+}
+
+
+/* 캔버스 부분 */
+
+h2{
+  color:white;
+  margin-top:30px;
+  font-size:120px;
+  text-align: center;
+}
+
+h2{
+  margin-top:50px;
+}
+
+
+
+
+.mySlides {
+  margin-left:30px;
+  height:350px;
+  position: absolute;
+  animation: round 16s infinite;
+  opacity: 0;
+}
+
+@keyframes round {
+  25% {
+    opacity: 1;
+  }
+  40% {
+    opacity: 0;
+  }
+}
+
+img {
+  width:600px;
+  height:450px;
+}
+
+.dot{
+  visibility: hidden;
+}
+
+
+/*
+Base spotlight concept from http://www.rwe-uk.com/blog/comments/rich_css_spotlight_with_elliptical_gradients_in_safari_chrome_firefox/
+
+Lamp effect supported by Chrome and Safari, but not Firefox. Spotlight effect supported in all three.
+*/
+
+* {
+  box-sizing: border-box;
+}
+html {
+  width: 100%;
+  height: 100%;
+}
+body {
+  width: 100%;
+  height: 100%;
+  background-color: #242222;
+  overflow: hidden;
+}
+.wrapper {
+  height: 100vh;
+
+  margin: 0 auto;
+  position: relative;
+}
+.backdrop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 80%;
+  overflow: hidden;
+  background-color:#242222;
+}
+/*
+.stage_highlight {
+  position: absolute;
+  top: 0;
+  left: 25vh;
+  width: 110vh;
+  height: 80%;
+  overflow: hidden;
+  background-image: radial-gradient(ellipse closest-side at 50% 82%, rgb(84,120,173), rgba(84,120,173,0) 100%);
+  -webkit-animation: move_highlight 5s linear infinite;
+          animation: move_highlight 5s linear infinite;
+  opacity: 0.5;
+}
+*/
+.spotlight_swivel {
+  -webkit-animation: rotate_spotlight 5s linear infinite;
+          animation: rotate_spotlight 5s linear infinite;
+}
+.lamp {
+  position: absolute;
+  width: 40vh;
+  height: 187vh;
+  background-image: radial-gradient(ellipse, rgba(82,116,168,0.5), rgba(82,116,168,0.2) 25%, rgba(82,116,168,0) 50%);
+  top:-250vh;
+  left:-43vh;
+  /* transform: perspective(23vh) rotateX(30deg); */
+}
+.spotlight {
+  opacity: 0.5;
+  transform: scale(1.5,3);
+  position: absolute;
+  top: -20vh;
+  left: calc(50% - 75vh);
+}
+.spotlight::after {
+  content: '';
+  position: absolute;
+  top: -50vh;
+  background-image: radial-gradient(ellipse closest-corner at 75% 75%, rgba(55,89,138,0.2), rgba(55,89,138,0));
+  border-radius: 100%;
+  width: 100vh;
+  height: 100vh;
+  clip: rect(50vh, 100vh, 100vh, 50vh);
+  transform: rotate(45deg);
+}
+
+@-webkit-keyframes rotate_spotlight {
+  0% {
+    transform: rotate(0deg) scaleY(1) translateY(0);
+  }
+  25% {
+    transform: rotate(-15deg) scaleY(1.1) translateY(-3vh);
+  }
+  50% {
+    transform: rotate(0deg) scaleY(1) translateY(0);
+  }
+  75% {
+    transform: rotate(15deg) scaleY(1.1) translateY(-3vh);
+  }
+}
+
+@keyframes rotate_spotlight {
+  0% {
+    transform: rotate(0deg) scaleY(1) translateY(0);
+  }
+  25% {
+    transform: rotate(-15deg) scaleY(1.1) translateY(-3vh);
+  }
+  50% {
+    transform: rotate(0deg) scaleY(1) translateY(0);
+  }
+  75% {
+    transform: rotate(15deg) scaleY(1.1) translateY(-3vh);
+  }
+}
+
+@-webkit-keyframes move_highlight {
+  0% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(25vh);
+  }
+  50% {
+    transform: translateX(0);
+  }
+  75% {
+    transform: translateX(-25vh);
+  }
+}
+
+@keyframes move_highlight {
+  0% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(25vh);
+  }
+  50% {
+    transform: translateX(0);
+  }
+  75% {
+    transform: translateX(-25vh);
+  }
+}
+
+.d-train {
+  font-size: 1.6rem;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.train-container {
+  position: absolute;
+  width: 100%;
+  bottom: -4rem;
+  z-index: 6;
+}
+
+.train {
+  width: 169rem;
+  -webkit-animation: train-move 8s linear -1s infinite forwards;
+          animation: train-move 8s linear -1s infinite forwards;
+}
+.train-car {
+  display: inline-block;
+  vertical-align: top;
+  width: 24rem;
+  height: 7rem;
+  padding-top: 1.8rem;
+  padding-left: 1.3rem;
+  border: 1px solid #242222;
+  border-top: 2px solid #242222;
+  border-radius: 1.1rem;
+  background: #22262C;
+}
+.train-head, .train-end {
+  padding-left: 1.8rem;
+  border-radius: 20rem 1.1rem 1.1rem;
+  border-left: 2px solid #978a8e;
+}
+.train-head .train-windows, .train-end .train-windows {
+  width: 17rem;
+}
+.train-head-window, .train-end-window {
+  width: 2.5rem !important;
+  border-top-left-radius: 2.5rem !important;
+  margin-right: 2rem !important;
+}
+.train-end {
+  transform: rotateY(180deg);
+}
+.train-windows, .train-door {
+  display: inline-block;
+}
+.train-windows {
+  width: 9rem;
+  height: 5rem;
+}
+.train-windows .w-left,
+.train-windows .w-right,
+.train-windows .train-head-window,
+.train-windows .train-end-window {
+  display: inline-block;
+  width: 3.8rem;
+  height: 2.6rem;
+  margin-right: 0.3rem;
+  border-radius: 0.3rem;
+  background: gray;
+}
+.train-door {
+  vertical-align: top;
+  width: 2.5rem;
+  height: 5rem;
+  padding: 0.4rem;
+  margin-right: 0.5rem;
+  background: #22262C;
+  position: relative;
+}
+.train-door::before {
+  content: "";
+  width: 100%;
+  height: 2rem;
+  background: gray;
+  display: block;
+}
+
+.train-track {
+  width: 100%;
+  height: 7rem;
+  background: #22262C;
+}
+
+.ledge {
+  width: 100%;
+  height: 3rem;
+  margin-bottom: 4rem;
+  border-bottom: 3px solid #22262C;
+}
+
+
+
+@-webkit-keyframes train-move {
+  0% {
+    transform: translateX(60rem);
+  }
+  100% {
+    transform: translateX(-170rem);
+
+  }
+}
+
+@keyframes train-move {
+  0% {
+    transform: translateX(60rem);
+  }
+  100% {
+    transform: translateX(-170rem);
+
+  }
+}
+#overlay {
+  background:#242222;
+  width:100%;
+  height:100%;
+  position:absolute;
+  top:0;
+  margin: 0 0 0 0;
+  display:none;
+  text-align:center;
+  z-index:7;
+}
+
+#overlay img {
+ margin-top: 1%;
+
+}
+
+#overlay p {
+ color:white;
+}
+
+#img-popup{
+
+  max-width: 50%;
+  max-height: 85%;
+  padding: 5% 0 5% 0;
+  margin: 0 auto 0 auto;
+}
+.carousel-inner>.item>a>img, .carousel-inner>.item>img, .img-responsive, .thumbnail a>img, .thumbnail>img {
+  width:1500px;
+  height:1500px;
+}

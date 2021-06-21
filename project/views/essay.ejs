@@ -1,0 +1,215 @@
+<!doctype html>
+<!--[if lt IE 7 ]> <html lang="en" class="ie6"> <![endif]-->
+<!--[if IE 7 ]>    <html lang="en" class="ie7"> <![endif]-->
+<!--[if IE 8 ]>    <html lang="en" class="ie8"> <![endif]-->
+<!--[if IE 9 ]>    <html lang="en" class="ie9"> <![endif]-->
+<!--[if !IE]><!--> <html lang="en"> <!--<![endif]-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width = 1050, user-scalable = no" />
+<script type="text/javascript" src="../../extras/jquery.min.1.7.js"></script>
+<script type="text/javascript" src="../../extras/modernizr.2.5.3.min.js"></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script>
+<script src='https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js'></script>
+<script src = "http://www.dukelearntoprogram.com/course1/common/js/image/SimpleImage.js"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<style>
+.on{color:#ff0000;}
+</style>
+</head>
+<body style="background-color:#323C43">
+	<% include ./sub_header %><div class ="login_info"><%=user_name%>님 환영합니다.</div> 
+  
+<div class="flipbook-viewport">
+	<div class="container">
+		<figure class="flipbook">
+	<%if(result){%>	
+	<% for( i = 0; i < result.length ;i++) { %>
+				<div style="background-image:url('<%=result[i].essay_photo_path %>')">
+					<figcaption style="background-color: rgba(0, 0, 0, 0.5); margin-top:444px;">
+			<h1><%=result[i].essay_title%></h1>
+			<p>
+				<%=result[i].essay_content%>
+			</p>
+		  </figcaption></div>
+				<% } %>
+	<% }%>
+
+</div>
+<div id="open-modal" class="modal-window">
+	<div class="small-container-1">
+
+			  <div class="inputs">
+				<form action="/essay/insert_process" enctype="multipart/form-data" method="post" id="box">
+				  <canvas id = "can" style="border:1px solid gray; height:350px; width:400px; background-color:gray;">   </canvas>
+					<input type="text" name="restro_title" id="restro_title" placeholder="제목" style="margin-top:10px; border:0px;"/>
+					<input type="hidden" name="id" value="<%=essay_list_id%>">
+					<input type="text" name="restro_content" id="restro_content" placeholder="내용" style="margin-top:10px; border:0px;"/>  
+					<div id="btn" >
+					  <div>
+						<span class="fileicon"><i class="fas fa-image" style="color:black;"></i></span>
+					  <input type="file" name = "attachment" class="file" multiple="false" accept="image/*" id="finput" onchange="doUpload()" style="margin-bottom:5px; display:none;"></input>
+
+					  <span class="submiticon"><i class="fas fa-chevron-circle-up" style="color:black;"></i></span>
+					<input class="submit"type="submit" value="Submit" name="submit" class="btn" style="margin-top:10px; width:100px; margin:0 auto; display:none;"/></div>
+						</div>
+
+						<div>
+							<a href="#" title="Close" class="modal-close">X</a>
+
+							</div>
+
+					</div>
+				  </form>
+			  </div>
+		  </div>
+<% include ./footer_essay %>
+
+<script type="text/javascript">
+	var image = null;
+
+
+	var imgcanvas;
+	
+	//Function to Upload Image to Canavs
+	function doUpload() {
+	  var fileinput = document.getElementById("finput");
+	  image = new SimpleImage(fileinput);
+	
+	  imgcanvas = document.getElementById("can");
+	  image.drawTo(imgcanvas);
+	  alert("image uploaded")
+	}
+	
+	//Display Dimensions
+	//Function to show image size used the the doDisplayDimensions function
+	function showImageSize(width, height)
+	{
+	 document.getElementById("size").innerHTML = `Dimensions: ${width}px x ${height}px`;
+	}
+	//Function to display image dimensions
+	function doDisplayDimensions(){
+		if (image == null  || ! image.complete()) {
+		alert("Image Not Uploaded");
+	  }
+	  showImageSize(image.getWidth(), image.getHeight());
+	}
+	
+	$(".fileicon").click(function(){
+	  $(".file").click();
+	});
+	
+	$(".submiticon").click(function(){
+	  $(".submit").click();
+	});
+	
+	$(".submit").click(function(){
+		var nation_name = $("#restro_title").val();
+		var date = $("#restro_content").val();
+		var file = $('#finput').val();
+		
+		if(nation_name ===''){
+		  alert('제목을 입력해주세요.')
+		  return false;
+		}
+		else if(date ===''){
+		  alert('내용을 입력해주세요.')
+		  return false;
+		}
+		else if(file ===''){
+		  alert('에세이에 등록할 이미지를 등록해주세요.')
+		  return false;
+		}
+	  
+		
+	  });
+function loadApp() {
+
+	// Create the flipbook
+
+	$('.flipbook').turn({
+			// Width
+
+			width:1075,
+
+			// Height
+
+			height:700,
+
+			// Elevation
+
+			elevation: 50,
+
+			// Enable gradients
+
+			gradients: true,
+
+			// Auto center this flipbook
+
+			autoCenter: true
+
+	});
+}
+
+// Load the HTML4 version if there's not CSS transform
+
+yepnope({
+	test : Modernizr.csstransforms,
+	yep: ['../../lib/turn.js'],
+	nope: ['../../lib/turn.html4.min.js'],
+	both: ['../stylesheets/basic.css'],
+	complete: loadApp
+});
+
+</script>
+
+</body>
+</html>
+<script>
+$(document).ready(function(){
+	$('.select ul li a').click(function(){
+		$('.select ul li a').removeClass('on');
+		$(this).addClass('on');
+	});
+
+	$('.1').click(function(){
+		$(".flipbook").turn("page", 2);
+	});
+	$('.2').click(function(){
+		$(".flipbook").turn("page", 4);
+	});
+	$('.3').click(function(){
+		$(".flipbook").turn("page", 6);
+	});
+	$('.4').click(function(){
+		$(".flipbook").turn("page", 8);
+	});
+	$('.5').click(function(){
+		$(".flipbook").turn("page", 10);
+	});
+	$('.6').click(function(){
+		$(".flipbook").turn("page", 12);
+	});
+
+
+
+	$(".flipbook").bind("turning", function(event, page, view) {
+		if (page==4||page==5) {
+			$('.select ul li a').removeClass('on');
+			$('.2').addClass('on');
+		}
+		if (page==2||page==3) {
+			$('.select ul li a').removeClass('on');
+			$('.1').addClass('on');
+		}
+		if (page==6||page==7) {
+			$('.select ul li a').removeClass('on');
+			$('.3').addClass('on');
+		}
+		if (page==8||page==9) {
+			$('.select ul li a').removeClass('on');
+			$('.4').addClass('on');
+		}
+		});
+	});
+</script>

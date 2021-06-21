@@ -1,0 +1,219 @@
+@import url('https://fonts.googleapis.com/css2?family=Gochi+Hand&family=Tenali+Ramakrishna&display=swap');
+body {
+  background: #323C43;
+}
+html, body {
+
+  margin: 0;
+  height: 100%;
+  overflow: hidden;
+
+}
+/* div box styling */
+.container {
+
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+.welcome {
+  background: #17503d;
+  width: 650px;
+  height: 415px;
+  position: absolute;
+  border-radius: 5px;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1);
+}
+.framebox {
+  position: absolute;
+  top: -10%;
+  left: 5%;
+  background: #7c4415;
+  width: 320px;
+  height: 500px;
+  border-radius: 5px;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+  transition: all 0.5s ease-in-out;
+  z-index: 2;
+}
+.nodisplay {
+  display: none;
+  transition: all 0.5s ease;
+}
+.leftbox, .rightbox {
+  position: absolute;
+  width: 50%;
+  transition: 1s all ease;
+}
+.leftbox {
+  left: -2%;
+}
+.rightbox {
+  right: -2%;
+}
+
+/* font & button styling */
+h1 {
+  font-family: "Lora", sans-serif;
+  text-align: center;
+  margin-top: 95px;
+  text-transform: uppercase;
+  color: #f6f6f6;
+  font-size: 2em;
+  letter-spacing: 8px;
+}
+.title {
+  font-family: "Lora", serif;
+  color: #8E9AAF;
+  font-size: 1.8em;
+  line-height: 1.1em;
+  letter-spacing: 3px;
+  text-align: center;
+  font-weight: 300;
+  margin-top: 20%;
+}
+.desc {
+  margin-top: -8px;
+}
+.account {
+  margin-top: 55%;
+  font-size: 10px;
+}
+p {
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.7em;
+  letter-spacing: 2px;
+  color: #ffbb5d;
+  text-align: center;
+}
+span {
+  color: #ffbb5d;
+}
+
+.passport {
+  position: absolute;
+  width: 90px;
+  height: 100px;
+  top: 45%;
+  left: 36%;
+  opacity: 0.9;
+}
+button {
+  padding: 12px;
+  font-family: "Open Sans", sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-size: 15px;
+  border-radius: 10px;
+  margin: auto;
+  outline: none;
+  display: block;
+}
+button:hover {
+  background: #b88947;
+  color: #f6f6f6;
+  transition: background-color 1s ease-out;
+}
+.button {
+  margin-top: 3%;
+  color: #ffbb5d;
+  border: solid 1px #17503d;
+  background-color: #17503d;
+}
+.framebox .button {
+  background-color: #7c4415;
+  color: #f6f6f6;
+  border-bottom: 1px solid #f6f6f6;
+}
+.framebox input {
+  background-color: #7c4415;
+}
+.leftbox .button {
+  border: 1px bolid #7c4415;
+}
+a { text-decoration: none; color: #f6f6f6; }
+a:visited { text-decoration: none; }
+a:hover { text-decoration: none; }
+a:focus { text-decoration: none; }
+a:hover, a:active { text-decoration: none; }
+
+
+form {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding-top: 7px;
+}
+
+.more-padding {
+  padding-top: 35px;
+}
+.more-padding input {
+  padding: 12px;
+}
+.more-padding .submit {
+  margin-top: 45px;
+}
+
+.submit {
+  margin-top: 25px;
+  padding: 12px;
+  border-color: #B3B68A;
+}
+.submit:hover {
+  background: #b6761c;
+  border-color: #bfb1c9;
+}
+
+input {
+  background: #EAC7CC;
+  width: 65%;
+  color: #ce7d88;
+  border: none;
+  border-bottom: 1px solid rgba(246, 246, 246, 0.5);
+  padding: 9px;
+  margin: 7px;
+}
+input::placeholder {
+  color: #f6f6f6;
+  letter-spacing: 2px;
+  font-size: 1.3em;
+  font-weight: 100;
+}
+input:focus {
+  color: #ce7d88;
+  outline: none;
+  border-bottom: 1.2px solid rgba(206, 125, 136, 0.7);
+  font-size: 1em;
+  transition: 0.8s all ease;
+}
+input:focus::placeholder {
+  opacity: 0;
+}
+
+label {
+  font-family: "Open Sans", sans-serif;
+  color: #f6f6f6;
+  font-size: 0.8em;
+  letter-spacing: 1px;
+}
+
+.checkbox {
+  display: inline;
+  white-space: nowrap;
+  position: relative;
+  left: -62px;
+  top: 5px;
+}
+
+input[type=checkbox] {
+  width: 7px;
+  background: #ce7d88;
+}
+
+.checkbox input[type=checkbox]:checked + label {
+  color: #ce7d88;
+  transition: 0.5s all ease;
+}

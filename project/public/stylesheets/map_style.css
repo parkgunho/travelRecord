@@ -1,0 +1,450 @@
+@import url('https://fonts.googleapis.com/css2?family=Gochi+Hand&family=Tenali+Ramakrishna&display=swap');
+.land
+{
+  fill: #808792;                  /*대륙 */
+  fill-opacity: 1;
+  fill-rule:evenodd;
+  stroke:#808792;                   /*경계 색*/
+  stroke-opacity: 1;
+  stroke-width:0.5;
+}
+
+.land:checked ~ #draw{
+  width:100%;
+  height:100%;
+}
+.land:hover{
+  fill:orange;
+}
+body{
+  background:#323C43;
+}
+figure{
+  width:100%;
+  height:60%;
+  position:absolute;
+  top:43.5%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  margin:0;
+}
+path{
+  cursor:pointer;
+}
+/* button{
+width: 100%;
+height: 50px;
+text-transform: capitalize;
+font-size: 1.5rem;
+cursor:pointer;
+} */
+
+@keyframes fadeOut {
+
+   0% {
+    color:red;
+    opacity: 1;
+    /* transform: translate3d(0px,100px, 0); */
+  }
+
+  30% {
+    color:#dd0000;
+    opacity: 1;
+  }
+
+  100% {
+    color:black;
+    opacity: 0;
+     /* transform: translate3d(0px, 0px, 0); */
+  }
+
+}
+
+
+.circle {
+  animation: fadeOut 1s linear infinite;
+
+
+}
+a { text-decoration: none; color: black; }
+a:visited { text-decoration: none; }
+a:hover { text-decoration: none; }
+a:focus { text-decoration: none; }
+a:hover, a:active { text-decoration: none; }
+
+#c {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+#ticket{
+border-radius: 10px;
+
+}
+
+.left{
+border:0px;
+float:left;
+height:85px;
+}
+.koimg{
+  border-radius: 0px 0px 0px 10px;
+width:100px;
+height:85px;
+}
+
+.top{
+width: 350px;
+height:15px;
+background-color: #00BBFE;
+border-radius: 10px 10px 0px 0px;
+}
+.top > p{
+text-align: center;
+margin-top:0px;
+font-size:10px;
+color:white;
+}
+
+.right{
+
+  width:250px;
+  height:85px;
+  float:left;
+
+  background-color:white;
+}
+
+.right-top{
+
+  border-bottom:1px solid #AEAEAE;
+  height:30px;
+  margin-bottom:0px;
+
+}
+
+.right-top .start> h1{
+  color:#039dfc;
+
+  float:left;
+  font-size:11px;
+}
+.right-top .bi >h1{
+  color:#039dfc;
+
+
+  float:left;
+  font-size:11px;
+}
+
+.right-top .arrival >h1{
+  color:#039dfc;
+  float:left;
+  font-size:11px;
+}
+.ticket{
+ display:none;
+ animation: fadein 2s;
+ padding:0px;
+ border-radius:10px;
+ -webkit-transition: padding 2s;
+}
+
+
+
+svg{
+  animation: fadein 2s;
+  -moz-animation: fadein 2s; /* Firefox */
+  -webkit-animation: fadein 2s; /* Safari and Chrome */
+  -o-animation: fadein 2s; /* Opera */
+}
+@keyframes fadein {
+  from {
+      opacity:0;
+  }
+  to {
+      opacity:1;
+  }
+}
+@-moz-keyframes fadein { /* Firefox */
+  from {
+      opacity:0;
+  }
+  to {
+      opacity:1;
+  }
+}
+@-webkit-keyframes fadein { /* Safari and Chrome */
+  from {
+      opacity:0;
+  }
+  to {
+      opacity:1;
+  }
+}
+@-o-keyframes fadein { /* Opera */
+  from {
+      opacity:0;
+  }
+  to {
+      opacity: 1;
+  }
+}
+
+.ticket::before{
+  content: '';
+  width: 2px;
+  height: 70px;
+  background-color: 	#696969;
+  transform: rotate(-15deg);
+  top:99px;
+  right:210px;
+  position: absolute;
+  /* css3 */
+  -webkit-border-radius:25px;
+  -moz-border-radius:25px;
+  border-radius:25px; 
+  /* reduce the damage in FF3.0 */
+  display:block;
+  animation: tree 0.1s;
+} 
+.ticket.changed_GL::before{
+  content: '.';
+  width: 2px;
+  height: 40px;
+  background-color:    #696969;
+  transform: rotate(-15deg);
+  top:100px;
+  right:201px;
+  position: absolute;
+  /* css3 */
+  -webkit-border-radius:25px;
+  -moz-border-radius:25px;
+  border-radius:25px;
+  /* reduce the damage in FF3.0 */
+  display:block;
+  animation: tree_GL 0.1s;
+}
+.ticket.changed_AU::before{
+ content: '.';
+ width: 2px;
+ height: 70px;
+ background-color:    #696969;
+ transform: rotate(-15deg);
+ top:100px;
+ right:161px;
+ position: absolute;
+ /* css3 */
+ -webkit-border-radius:25px;
+ -moz-border-radius:25px;
+ border-radius:25px;
+ /* reduce the damage in FF3.0 */
+ display:block;
+ animation: tree_GL 0.1s;
+}.ticket.changed_KR::before{
+  content: '.';
+  width: 2px;
+  height: 70px;
+  background-color:    #696969;
+  transform: rotate(-15deg);
+  top:100px;
+  right:195px;
+  position: absolute;
+  /* css3 */
+  -webkit-border-radius:25px;
+  -moz-border-radius:25px;
+  border-radius:25px;
+  /* reduce the damage in FF3.0 */
+  display:block;
+  animation: tree_GL 0.1s;
+ }
+
+.ticket.changed_JP::before{
+ content: '.';
+ width: 2px;
+ height: 70px;
+ background-color:    #696969;
+ transform: rotate(-15deg);
+ top:100px;
+ right:150px;
+ position: absolute;
+ /* css3 */
+ -webkit-border-radius:25px;
+ -moz-border-radius:25px;
+ border-radius:25px;
+ /* reduce the damage in FF3.0 */
+ display:block;
+ animation: tree_GL 0.1s;
+}
+@keyframes tree{
+
+  0%{
+    top: 170px;
+   height: 0px;
+   right: 125px;
+  }
+  100%{
+    height: 70px;
+    top:100px;
+    right: 133px;
+
+  }
+}
+@keyframes tree_GL{
+ 
+  0%{
+    top: 140px;
+   height: 0px;
+   right: 127px;
+  }
+  100%{
+    height: 40px;
+    top:100px;
+    right: 129px;
+    
+  }
+}
+.ticket1:hover{
+  padding: 0px;
+  border-radius: 0px;
+  -webkit-transition:border-radius 2s;
+}
+#ticket{
+  width:350px;
+  height: 100px;
+}
+
+html,body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  }
+  #box {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+.modal-window {
+  position: fixed;
+  background-color: rgba(100, 100, 100, 0.25);
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 999;
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s;
+}
+.modal-window:target {
+  visibility: visible;
+  opacity: 1;
+  pointer-events: auto;
+}
+.modal-window > div {
+  background: white;
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 10px;
+  padding: 20px 30px 0px 30px;
+  box-shadow: 15px 17px 16px 16px rgba(0, 0, 0, 0.3);
+}
+
+#btn{
+
+  text-align: right;
+}
+
+/*date*/
+[type="date"] {
+  background:#fff url(https://cdn1.iconfinder.com/data/icons/cc_mono_icon_set/blacks/16x16/calendar_2.png)  97% 50% no-repeat ;
+}
+[type="date"]::-webkit-inner-spin-button {
+  display: none;
+}
+[type="date"]::-webkit-calendar-picker-indicator {
+  opacity: 0;
+}
+
+/* custom styles */
+#open-modal {
+  padding: 4em;
+  background-color: rgba(229, 229, 229,0.5);
+
+
+  font: 13px/1.4 Geneva, 'Lucida Sans', 'Lucida Grande', 'Lucida Sans Unicode', Verdana, sans-serif;
+}
+#open-modal1 {
+  padding: 4em;
+  background-color: rgba(229, 229, 229,0.5);
+
+
+  font: 13px/1.4 Geneva, 'Lucida Sans', 'Lucida Grande', 'Lucida Sans Unicode', Verdana, sans-serif;
+}
+
+label {
+  display: block;
+}
+input {
+  border: 1px solid #c4c4c4;
+  border-radius: 5px;
+  background-color: #fff;
+  padding: 3px 5px;
+  box-shadow: inset 0 3px 6px rgba(0,0,0,0.1);
+
+}
+
+.modal-close {
+  color: #aaa;
+
+  font-size: 80%;
+  position: absolute;
+  right: 0;
+  text-align: right;
+  top: 0;
+  width: 70px;
+  text-decoration: none;
+  margin-right:13px;
+}
+.modal-close:hover {
+  color: black;
+}
+.modal-window > div {
+  border-radius: 1rem;
+}
+
+.modal-window div:not(:last-of-type) {
+  margin-bottom: 15px;
+}
+#svg{
+  position:relative;
+}
+#all{
+  text-align: center;
+  vertical-align: middle;
+  position: absolute;
+  width: 99%; height: 99%;
+  transition: transform 1s;
+  backface-visibility:hidden;
+}
+#next
+{
+  position: absolute;
+  width: 100%; height: 100%;
+  transition: transform 1s;
+  backface-visibility:hidden;
+  background-color: #323C43;
+  transform: rotateX(180deg); 
+}
+.header{
+  position: absolute;
+  z-index: 1000;
+  
+}

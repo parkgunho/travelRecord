@@ -1,0 +1,124 @@
+
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script>
+<script src='https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js'></script>
+<script src = "http://www.dukelearntoprogram.com/course1/common/js/image/SimpleImage.js"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.min.css'><link rel="stylesheet" href="../../stylesheets/footer_style.css">
+<!-- SOCIAL PANEL HTML -->
+<div class="footer" style="z-index: 1000;">
+	<div class="social-panel">
+
+		<button class="close-btn"><i class="fas fa-times"></i></button>
+		<h4>travel record</h4>
+		<ul>
+			<li>
+				<a href="#open-modal" class = "modify_btn">
+					@
+				</a>
+				<!-- <a href="./travel/insert" target="_blank">
+					+
+				</a> -->
+			</li>
+			<li class="trash">
+				<a  href="#">
+					U
+				</a>
+			</li>
+
+		</ul>
+	</div>
+</div>
+<button class="floating-btn">
+	+
+</button>
+<div id="container" style="width: 180px;height: 180px; bottom:0%; right: 0%;">
+    <div id="droppable"></div>
+</div>
+<!-- partial -->
+  <script  src="../../javascripts/footer_script.js"></script>
+<script>
+	$('.trash').on('click',function(){
+		$('.footer').css('display','none');
+		$('#droppable').css('display','block');
+	 })
+	 $('.floating-btn').on('click',function(){
+		$('#droppable').css('display','none');
+		$('.footer').css('display','block');
+		$('.trash').css('display','block');
+	 })
+	 $('.modify_btn').on('click',function(){
+		$.ajax({
+			url:'/gallery/modify',
+			type:'POST',
+			data: {key:$('.slick-current').data('value')},
+			success:function(data){
+			if(data){
+				$('.nation_name').val(data[0].country_name)
+				
+				var fileinput = document.getElementById("finput");
+				image = new SimpleImage(data[0].travel_image);
+				
+				imgcanvas = document.getElementById("can");
+				image.drawTo(imgcanvas);
+				
+				console.log('나라 이름',data[0].country_name,'사진 정보',data[0].travel_image,'start date',data[0].start_date);
+			  }
+			  else{
+				console.log('수정 실패')
+			  }
+			}
+		
+		   })
+	
+	 })
+	 var image = null;
+
+
+var imgcanvas;
+
+//Function to Upload Image to Canavs
+function doUpload() {
+  var fileinput = document.getElementById("finput");
+  image = new SimpleImage(fileinput);
+
+  imgcanvas = document.getElementById("can");
+  image.drawTo(imgcanvas);
+  alert("image uploaded")
+}
+
+//Display Dimensions
+//Function to show image size used the the doDisplayDimensions function
+function showImageSize(width, height)
+{
+ document.getElementById("size").innerHTML = `Dimensions: ${width}px x ${height}px`;
+}
+//Function to display image dimensions
+function doDisplayDimensions(){
+    if (image == null  || ! image.complete()) {
+    alert("Image Not Uploaded");
+  }
+  showImageSize(image.getWidth(), image.getHeight());
+}
+
+$(".fileicon").click(function(){
+  $(".file").click();
+});
+
+$(".submiticon").click(function(){
+  $(".submit").click();
+});
+
+$(".submit").click(function(){
+	$('.travel_id').val($('.slick-current').data('value'))
+	var file = $('#finput').val();
+	console.log('file',file)
+	if(file === '')
+		{
+			window.location.replace('/gallery/nation_categori')
+			return false;
+		}
+
+  
+	
+  });
+</script>

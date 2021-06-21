@@ -1,0 +1,211 @@
+/* Basic sample */
+@import url('https://fonts.googleapis.com/css2?family=Gochi+Hand&family=Tenali+Ramakrishna&display=swap');
+body{
+	overflow:hidden;
+	background-color:#fcfcfc;
+	margin:0;
+	padding:0;
+}
+
+.flipbook-viewport{
+	overflow:hidden;
+	width:100%;
+	height:100%;
+}
+
+.flipbook-viewport .container{
+	position:absolute;
+	top:50%;
+	left:50%;
+	margin:auto;
+}
+
+.flipbook-viewport .flipbook{
+	width:1075px;
+	height:700px;
+	left:-537px;
+	top:-350px;
+}
+
+.flipbook-viewport .page{
+	width:461px;
+	height:600px;
+	background-color:white;
+	background-repeat:no-repeat;
+	background-size:100% 100%;
+}
+
+.flipbook .page{
+	-webkit-box-shadow:0 0 20px rgba(0,0,0,0.2);
+	-moz-box-shadow:0 0 20px rgba(0,0,0,0.2);
+	-ms-box-shadow:0 0 20px rgba(0,0,0,0.2);
+	-o-box-shadow:0 0 20px rgba(0,0,0,0.2);
+	box-shadow:0 0 20px rgba(0,0,0,0.2);
+}
+
+.flipbook-viewport .page img{
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	margin:0;
+}
+
+.flipbook-viewport .shadow{
+	-webkit-transition: -webkit-box-shadow 0.5s;
+	-moz-transition: -moz-box-shadow 0.5s;
+	-o-transition: -webkit-box-shadow 0.5s;
+	-ms-transition: -ms-box-shadow 0.5s;
+
+	-webkit-box-shadow:0 0 20px #ccc;
+	-moz-box-shadow:0 0 20px #ccc;
+	-o-box-shadow:0 0 20px #ccc;
+	-ms-box-shadow:0 0 20px #ccc;
+	box-shadow:0 0 20px #ccc;
+}
+
+figcaption {
+
+  color: white;
+  width: calc(100% - 0px);
+  text-align: center;
+  position: absolute;
+  bottom: 0;
+  left: 0px;
+  z-index: 1;
+  max-height: 3em;
+  overflow: hidden;
+  -webkit-transition: max-height 1s;
+  -webkit-transition-delay: 0.2s;
+  -moz-transition: max-height 1s 0.2s;
+  -o-transition: max-height 1s 0.2s;
+  transition: max-height 1s 0.2s;
+}
+
+figcaption:hover{
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+figure figcaption h1 {
+  line-height: 1.5em;
+  margin: 0;
+  font-weight: 400;
+  font-family: 'Tenali Ramakrishna', sans-serif;
+  margin-top: 10px;
+}
+
+figcaption p {
+  margin: 0;
+  padding: 0 20px 20px 20px;
+  display: block;
+  overflow: hidden;
+  text-align: center;
+  font-family: 'Gochi Hand', cursive;
+}
+
+figure figcaption:hover {
+  max-height: 100%;
+}
+
+
+/* modal */
+#box {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+.modal-window {
+  position: fixed;
+  background-color: rgba(100, 100, 100, 0.25);
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 999;
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s;
+}
+.modal-window:target {
+  visibility: visible;
+  opacity: 1;
+  pointer-events: auto;
+}
+.modal-window > div {
+  background: white;
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 10px;
+  padding: 20px 30px 0px 30px;
+  box-shadow: 15px 17px 16px 16px rgba(0, 0, 0, 0.3);
+}
+
+#btn{
+
+  text-align: right;
+}
+/*date*/
+/*date*/
+[type="date"] {
+  background:#fff url(https://cdn1.iconfinder.com/data/icons/cc_mono_icon_set/blacks/16x16/calendar_2.png)  97% 50% no-repeat ;
+}
+[type="date"]::-webkit-inner-spin-button {
+  display: none;
+}
+[type="date"]::-webkit-calendar-picker-indicator {
+  opacity: 0;
+}
+
+/* custom styles */
+#open-modal {
+	padding: 4em;
+	background-color: rgba(229, 229, 229,0.5);
+  
+  
+	font: 13px/1.4 Geneva, 'Lucida Sans', 'Lucida Grande', 'Lucida Sans Unicode', Verdana, sans-serif;
+  }
+/* body {
+  padding: 4em;
+  background: #e5e5e5;
+  font: 13px/1.4 Geneva, 'Lucida Sans', 'Lucida Grande', 'Lucida Sans Unicode', Verdana, sans-serif;
+} */
+label {
+  display: block;
+}
+input {
+  border: 1px solid #c4c4c4;
+  border-radius: 5px;
+  background-color: #fff;
+  padding: 3px 5px;
+  box-shadow: inset 0 3px 6px rgba(0,0,0,0.1);
+
+}
+
+.modal-close {
+  color: #aaa;
+
+  font-size: 80%;
+  position: absolute;
+  right: 0;
+  text-align: right;
+  top: 0;
+  width: 70px;
+  text-decoration: none;
+  margin-right:13px;
+}
+.modal-close:hover {
+  color: black;
+}
+.modal-window > div {
+  border-radius: 1rem;
+}
+
+.modal-window div:not(:last-of-type) {
+  margin-bottom: 15px;
+}

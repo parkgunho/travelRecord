@@ -1,0 +1,69 @@
+
+
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.min.css'><link rel="stylesheet" href="../../stylesheets/footer_style.css">
+<!-- SOCIAL PANEL HTML -->
+<div class="footer" style="z-index: 1000;">
+	<div class="social-panel">
+
+		<button class="close-btn"><i class="fas fa-times"></i></button>
+		<h4>travel record</h4>
+		<ul>
+			<li>
+				<a href="#open-modal">
+					+
+				</a>
+				<!-- <a href="./travel/insert" target="_blank">
+					+
+				</a> -->
+			</li>
+			<li class = "remove_btn">
+				<a href="#none">
+					U
+				</a>
+				<!-- <a href="./travel/insert" target="_blank">
+					+
+				</a> -->
+			</li>
+		</ul>
+	</div>
+</div>
+<button class="floating-btn">
+	+
+</button>
+<div id="container" style="width: 180px;height: 180px; bottom:0%; right: 0%;">
+    <div id="droppable"></div>
+</div>
+<!-- partial -->
+  <script  src="../../javascripts/footer_script.js"></script>
+<script>
+	$('.trash').on('click',function(){
+		$('.footer').css('display','none');
+		$('#droppable').css('display','block');
+	 })
+	 $('.floating-btn').on('click',function(){
+		$('#droppable').css('display','none');
+		$('.footer').css('display','block');
+		$('.trash').css('display','block');
+	 })
+
+	 $('.remove_btn').on('click',function(){
+		var result = confirm("정말 삭제하시겠습니까?.");
+		if(result){
+			  $.ajax({
+			url:'/essay/delete_process',
+			type:'POST',
+			data: {key:'<%=essay_list_id%>'},
+			success:function(data){
+			if(data === '삭제 성공'){
+			  // $(e.target).parents("li").remove();
+			  window.location.replace('/essay')
+			  }
+			  else{
+			  console.log('삭제 실패')
+			  }
+			}
+		  
+			 })
+		}
+	 })
+</script>

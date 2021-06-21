@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>CodePen - #4: Polaroid Image Gallery (complete)</title>
+  <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+  <link rel="stylesheet" href="../../stylesheets/nation_album_style.css">
+  <link rel="stylesheet" href="../../stylesheets/font.css">
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script>
+  <script src='https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js'></script><script  src="./script.js"></script>
+  <script src = "http://www.dukelearntoprogram.com/course1/common/js/image/SimpleImage.js"></script>
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+</head>
+<body>
+  <% include ./sub_header %>   <div class ="login_info"><%=user_name%>님 환영합니다.</div> 
+<!-- partial:index.partial.html -->
+<div class="wrapper">
+
+  <% for( i = 0; i < result.length ;i++) { %>
+    <div class="item">
+      <div data-value="<%=result[i].photo_id %>" class="polaroid draggable">
+        <img src="<%=result[i].photo_path %>">
+        <div class="caption"><%=result[i].photo_name %></div>
+      </div>
+    </div>
+    <% } %>
+ 
+</div>
+<div id="container" style="width: 180px;height: 180px; bottom:0%; right: 0%;">
+    <div id="droppable"></div>
+</div>
+<div id="open-modal" class="modal-window">
+	<div class="small-container-1">
+
+			  <div class="inputs">
+				<form action="/gallery/insert_process" enctype="multipart/form-data" method="post" id="box">
+				  <canvas id = "can" style="border:1px solid gray; height:350px; width:400px; background-color:gray;">   </canvas>
+					<input type="text" name="restro_title" id="restro_title" placeholder="Picture name" style="margin-top:10px; border:0px;"/> 
+        			  <input type="hidden" name="id" value="<%=travel_id%>"> 
+					<div id="btn" >
+					  <div>
+						<span class="fileicon"><i class="fas fa-image" style="color:black;"></i></span>
+					  <input type="file" name = "attachment" class="file" multiple="false" accept="image/*" id="finput" onchange="doUpload()" style="margin-bottom:5px; display:none;"></input>
+
+					  <span class="submiticon"><i class="fas fa-chevron-circle-up" style="color:black;"></i></span>
+					<input class="submit"type="submit" value="Submit" name="submit" class="btn" style="margin-top:10px; width:100px; margin:0 auto; display:none;"/></div>
+						</div>
+
+						<div>
+							<a href="#" title="Close" class="modal-close">X</a>
+
+							</div>
+
+					</div>
+				  </form>
+			  </div>
+		  </div>
+<footer>
+	<% include ./sub_footer %>
+</footer>
+
+<!-- partial -->
+<script>
+  var image = null;
+
+
+var imgcanvas;
+
+
+//Function to Upload Image to Canavs
+function doUpload() {
+  var fileinput = document.getElementById("finput");
+  image = new SimpleImage(fileinput);
+
+  imgcanvas = document.getElementById("can");
+  image.drawTo(imgcanvas);
+  alert("image uploaded")
+}
+
+//Display Dimensions
+//Function to show image size used the the doDisplayDimensions function
+function showImageSize(width, height)
+{
+ document.getElementById("size").innerHTML = `Dimensions: ${width}px x ${height}px`;
+}
+//Function to display image dimensions
+function doDisplayDimensions(){
+    if (image == null  || ! image.complete()) {
+    alert("Image Not Uploaded");
+  }
+  showImageSize(image.getWidth(), image.getHeight());
+}
+
+$(".fileicon").click(function(){
+  $(".file").click();
+});
+
+$(".submiticon").click(function(){
+  $(".submit").click();
+});
+
+$(".submit").click(function(){
+	var nation_name = $("#restro_name").val();
+	var date = $("#dateofbirth").val();
+	var file = $('#finput').val();
+	
+	if(nation_name ===''){
+	  alert('여행한 나라명을 입력하세요')
+	  return false;
+	}
+	else if(date ===''){
+	  alert('여행한 일자를 입력하세요')
+	  return false;
+	}
+	else if(file ===''){
+	  alert('나라를 대표할 사진을 등록하세요.')
+	  return false;
+	}
+  
+	
+  });
+</script>
+<script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+<script src='https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js'></script>
+<script src="../../javascripts/nation_ablum_script.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.0/jquery-ui.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
+</body>
+</html>

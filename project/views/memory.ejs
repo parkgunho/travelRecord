@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+	<meta charset="UTF-8">
+	<title>CodePen - WorldMap</title>
+	<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css'>
+<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.2.3/animate.min.css'>
+	<link rel="stylesheet" href="../../stylesheets/memory_style.css">
+
+</head>
+
+<body>
+	<% include ./sub_header %> <div class ="login_info"><%=user_name%>님 환영합니다.</div> 
+
+
+
+	<div class="wrapper">
+
+
+	  <div class="backdrop"></div>
+
+	  <div class="stage_floor"></div>
+
+	  <div class="stage_highlight"></div>
+
+	  <div class="spotlight_swivel">
+
+	    <div class="lamp"></div>
+
+	    <div class="spotlight"></div>
+
+	  </div>
+
+<div class="d-train">
+
+
+	<!-- partial:index.partial.html -->
+	<div class="wrapper">
+
+	<div class="backdrop"></div>
+
+	<div class="stage_floor"></div>
+
+	<div class="stage_highlight"></div>
+
+	<div class="spotlight_swivel">
+
+		<div class="lamp"></div>
+
+		<div class="spotlight"></div>
+
+	</div>
+
+
+	</div>
+	<!-- partial -->
+
+	<div class="train-container">
+	<div class="train">
+		<div class="train-car train-head">
+			<div class="train-windows">
+				<div class="train-head-window"></div>
+				<div class="w-left"></div>
+				<div class="w-right"></div>
+			</div>
+			<div class="train-door"></div>
+		</div>
+		<!-- Train head end -->
+		<div class="train-car">
+			<div class="train-windows">
+				<div class="w-left"></div>
+				<div class="w-right"></div>
+			</div>
+			<div class="train-door"></div>
+			<div class="train-windows">
+				<div class="w-left"></div>
+				<div class="w-right"></div>
+			</div>
+		</div>
+		<!-- Train car end -->
+		<div class="train-car">
+			<div class="train-windows">
+				<div class="w-left"></div>
+				<div class="w-right"></div>
+			</div>
+			<div class="train-door"></div>
+			<div class="train-windows">
+				<div class="w-left"></div>
+				<div class="w-right"></div>
+			</div>
+		</div>
+		<!-- Train car end -->
+		<div class="train-car">
+			<div class="train-windows">
+				<div class="w-left"></div>
+				<div class="w-right"></div>
+			</div>
+			<div class="train-door"></div>
+			<div class="train-windows">
+				<div class="w-left"></div>
+				<div class="w-right"></div>
+			</div>
+		</div>
+		<!-- Train car end -->
+		<div class="train-car">
+			<div class="train-windows">
+				<div class="w-left"></div>
+				<div class="w-right"></div>
+			</div>
+			<div class="train-door"></div>
+			<div class="train-windows">
+				<div class="w-left"></div>
+				<div class="w-right"></div>
+			</div>
+		</div>
+		<!-- Train car end -->
+		<div class="train-car train-end">
+			<div class="train-windows">
+				<div class="train-end-window"></div>
+				<div class="w-left"></div>
+				<div class="w-right"></div>
+			</div>
+			<div class="train-door"></div>
+		</div>
+		<!-- Train head end -->
+	</div>
+	<!-- Train end -->
+	<div class="train-track">
+		<div class="ledge"></div>
+
+	</div>
+	<!-- train-track end -->
+	</div>
+	</div>
+	</div>
+
+
+	<section id="container">
+    	<canvas id="c">Sorry, your browser does not support canvas.</canvas>
+
+
+
+
+		<figure>
+
+			<svg id="svg2" stroke-linejoin="round" viewBox="-800 -230 1900 800" style="margin-top:150px;  ">
+				<foreignObject x="-150" y="-300" width="700" height="700" class="title" >
+
+					<div class="t-container"  >
+						<h2 ><%=nation%></h2>
+
+
+					</div>
+
+					<script>
+
+
+					</script>
+				</foreignObject>
+
+				<foreignObject x="-450" y="100" width="600" height="450" class="ticket" >
+
+				
+
+					<div class="slideshow-container">
+						<% for( i = 0; i < result.length; i++) {%>
+							<div><img class="mySlides fade" src= <%=result[i].photo_path %> ></div>
+						<% } %>	
+						
+					</div>
+
+<br>
+
+<div style="text-align:center">
+	<% for( i = 0; i < result.length; i++) {%>
+  <span class="dot"></span>
+
+  <% } %>	
+</div>
+
+
+
+				</foreignObject>
+
+				<g>
+					 <%- nation_svg %>
+			</g>
+
+
+
+</svg>
+		</figure>
+
+	</section>
+
+
+</body>
+
+
+
+<!-- partial -->
+<script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.0/TimelineMax.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.0/TweenMax.min.js'></script>
+<script src='https://code.jquery.com/jquery-2.2.4.js'></script>
+<script src='https://npmcdn.com/babel-core@5.8.38/browser.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.1/imagesloaded.pkgd.min.js'></script><script  src="../../javascripts//memory_script.js"></script>
+<!-- partial -->
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js'></script><script  src="../../javascripts/memory_script2.js"></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js'></script>
+
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.css'>
+  <link rel='stylesheet' href="../stylesheets/nation_categori_style.css">
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script>
+  <script src='https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js'></script>
+  <script src = "http://www.dukelearntoprogram.com/course1/common/js/image/SimpleImage.js"></script>
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+</head>
+<body>
+
+  <% include ./sub_header %><div class ="login_info"><%=user_name%>님 환영합니다.</div> 
+<!-- partial:index.partial.html -->
+<main class="main">
+
+  <ul class="main__slider main__slider--countries">
+    <% for( i = 0; i < result.length ;i++) { %>
+    <li data-value= "<%=result[i].travel_id %>" class="main__item">
+     <a href="/gallery/panaroma/<%=result[i].travel_id %>"> <div class="main__image" style="background-image:url('<%=result[i].travel_image %>')"></div></a>
+      <h1 class="main__title"><a href="/gallery/nation_album/<%=result[i].travel_id %>"style="text-decoration:none"><%=result[i].country_name %></h1></a>
+      <button data-value= "<%=result[i].travel_id %>" class="delete-btn">X</button>
+    </li>
+    <% } %>
+    
+  </ul>
+
+
+
+
+
+
+</main>
+<div id="open-modal" class="modal-window">
+	<div class="small-container-1">
+			
+			  <div class="inputs">
+				<form action="/gallery/modify_process" enctype="multipart/form-data" method="post" id="box">
+				  <canvas id = "can" style="border:1px solid gray; height:350px; width:400px; background-color:gray;">   </canvas>
+					<input class = "nation_name" type="text" name="restro_name" id="restro_name" readonly style="margin-top:10px; border:0px; font-color:black"/>
+					<input class = "travel_id" type="hidden" name="id"> 
+					
+					<div id="btn" >
+					  <div>
+						<span class="fileicon"><i class="fas fa-image" style="color:black;"></i></span>
+					  <input type="file" name = "attachment" class="file" multiple="false" accept="image/*" id="finput" onchange="doUpload()" style="margin-bottom:5px; display:none;"></input>
+
+					  <span class="submiticon"><i class="fas fa-chevron-circle-up" style="color:black;"></i></span>
+					<input class="submit"type="submit" value="Submit" name="submit" class="btn" style="margin-top:10px; width:100px; margin:0 auto; display:none;"/></div>
+						</div>
+
+						<div>
+							<a href="#" title="Close" class="modal-close">X</a>
+
+							</div>
+
+					</div>
+				  </form>
+			  </div>
+		  </div>
+<!-- partial -->
+<footer>
+	<% include ./nation_categori_footer %>
+</footer>
+
+
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script>
+<script src='https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js'></script>
+<script src="../javascripts/nation_categori_script.js"></script>
+<script src = "http://www.dukelearntoprogram.com/course1/common/js/image/SimpleImage.js"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+</body>
+
+</html>
+
+

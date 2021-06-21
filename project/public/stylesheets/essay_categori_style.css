@@ -1,0 +1,356 @@
+@import url('https://fonts.googleapis.com/css2?family=Gochi+Hand&family=Tenali+Ramakrishna&display=swap');
+/* Based on: https://codepen.io/studiojvla/pen/qVbQqW */
+body {
+
+  background: #242222;
+
+  margin: 0;
+}
+
+@-webkit-keyframes scroll {
+  from {
+    transform: translateX(0%);
+  }
+  to {
+    transform: translateX(-265px * 30);
+  }
+}
+
+@keyframes scroll {
+	from {
+		transform: translateX(0%);
+	  }
+	  to {
+		transform: translateX(calc(-265px * 300));
+	  }
+}
+.wrapper{
+	align-items: center;
+	background: #242222;
+	display: flex;
+	height: 100vh;
+	justify-content: center;
+}
+.book-slider {
+  background:#7D492B;
+  box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.125);
+  height: 650px;
+  margin: auto;
+  overflow: hidden;
+  position: relative;
+  width: 100vw;
+
+}
+.book-slider::before, .book-slider::after {
+
+  content: "";
+  height: 650px;
+  position: absolute;
+  width: 300px;
+  z-index: 2;
+}
+.book-slider::after {
+  right: 0;
+  top: 0;
+  transform: rotateZ(180deg);
+}
+.book-slider::before {
+  left: 0;
+  top: 0;
+}
+
+.slide-container {
+  /* Hack to use gpu. */
+  transform: translate3d(0, 0, 0);
+  -webkit-animation:  300s ease-in 1s infinite running scroll;
+          animation:  300s ease-in 1s infinite running scroll;
+
+  display: flex;
+  width: calc(300px * 24);
+}
+
+.slide-container:hover {
+ -webkit-animation-play-state: paused;
+         animation-play-state: paused;
+}
+
+.book-slide {
+  height: 400px;
+  width: 265px;
+  padding: 0 25px;
+  margin-top: 50px;
+  opacity: 0.6;
+}
+
+.book-slide img {
+  width: 265px;
+  height: 400px;
+  border: 10px solid #8e8c8a;
+
+  box-sizing: border-box;
+}
+
+.book-slide h4 {
+  font-weight: bold;
+  text-align: center;
+  font-size:20px;
+  color:white;
+}
+
+img{
+  margin-top:50px;
+}
+.book-slide:hover{
+  opacity: 1;
+  transform:translate(0%,-1%);
+}
+
+.film > div{
+  margin-top:5px;
+  background-color:#8e8c8a;
+  border: 1px;
+  width: 50px;
+  height:50px;
+  z-index: index 1000;
+  position:absolute;
+  top: 10px;
+}
+.film1 > div{
+  background-color:#8e8c8a;
+  border: 1px; width: 50px; height:50px;   z-index: index 1000; position:absolute; top: 580px;
+}
+
+/*footer*/
+
+
+
+/* SOCIAL PANEL CSS */
+.footer {
+	position: fixed;
+	right: 0;
+	bottom: 80px;
+	transform: translateX(100%);
+	transition: transform 0.4s ease-in-out;
+}
+
+.footer.visible {
+	transform: translateX(-10px);
+}
+
+.social-panel {
+	background-color: #fff;
+	border-radius: 16px;
+	box-shadow: 0 16px 31px -17px rgba(0,31,97,0.6);
+	border: 5px solid #001F61;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	font-family: 'Muli';
+	position: relative;
+	height: 169px;
+	width: 370px;
+	max-width: calc(100% - 10px);
+}
+
+.social-panel button.close-btn {
+	border: 0;
+	color: #97A5CE;
+	cursor: pointer;
+	font-size: 20px;
+	position: absolute;
+	top: 5px;
+	right: 5px;
+}
+
+.social-panel button.close-btn:focus {
+	outline: none;
+}
+
+.social-panel p {
+	background-color: #001F61;
+	border-radius: 0 0 10px 10px;
+	color: #fff;
+	font-size: 14px;
+	line-height: 18px;
+	padding: 2px 17px 6px;
+	position: absolute;
+	top: 0;
+	left: 50%;
+	margin: 0;
+	transform: translateX(-50%);
+	text-align: center;
+	width: 235px;
+}
+
+.social-panel p i {
+	margin: 0 5px;
+}
+
+.social-panel p a {
+	color: #FF7500;
+	text-decoration: none;
+}
+
+.social-panel h4 {
+	margin: 20px 0;
+	color: #97A5CE;
+	font-family: 'Muli';
+	font-size: 14px;
+	line-height: 18px;
+	text-transform: uppercase;
+}
+
+.social-panel ul {
+	display: flex;
+	list-style-type: none;
+	padding: 0;
+	margin: 0;
+}
+
+.social-panel ul li {
+	margin: 0 10px;
+}
+
+.social-panel ul li a {
+	border: 1px solid #DCE1F2;
+	border-radius: 50%;
+	color: #001F61;
+	font-size: 20px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 50px;
+	width: 50px;
+	text-decoration: none;
+}
+
+.social-panel ul li a:hover {
+	border-color: #FF6A00;
+	box-shadow: 0 9px 12px -9px #FF6A00;
+}
+
+.floating-btn {
+	border-radius: 26.5px;
+	background-color: #001F61;
+	border: 1px solid #001F61;
+	box-shadow: 0 16px 22px -17px #03153B;
+	color: #fff;
+	cursor: pointer;
+	font-size: 16px;
+	line-height: 20px;
+	padding: 12px 20px;
+	position: fixed;
+	bottom: 20px;
+	right: 20px;
+	z-index: 999;
+}
+
+.floating-btn:hover {
+	background-color: #ffffff;
+	color: #001F61;
+}
+
+.floating-btn:focus {
+	outline: none;
+}
+
+@media screen and (max-width: 480px) {
+
+	.footer.visible {
+		transform: translateX(0px);
+	}
+
+	.floating-btn {
+		right: 10px;
+	}
+}
+
+/*modal*/
+#box {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+.modal-window {
+  position: fixed;
+  background-color: rgba(100, 100, 100, 0.25);
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 999;
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s;
+}
+.modal-window:target {
+  visibility: visible;
+  opacity: 1;
+  pointer-events: auto;
+}
+.modal-window > div {
+  background: white;
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 10px;
+  padding: 20px 30px 0px 30px;
+  box-shadow: 15px 17px 16px 16px rgba(0, 0, 0, 0.3);
+}
+
+#btn{
+
+  text-align: right;
+}
+/*date*/
+/*date*/
+[type="date"] {
+  background:#fff url(https://cdn1.iconfinder.com/data/icons/cc_mono_icon_set/blacks/16x16/calendar_2.png)  97% 50% no-repeat ;
+}
+[type="date"]::-webkit-inner-spin-button {
+  display: none;
+}
+[type="date"]::-webkit-calendar-picker-indicator {
+  opacity: 0;
+}
+
+/* custom styles */
+
+label {
+  display: block;
+}
+input {
+  border: 1px solid #c4c4c4;
+  border-radius: 5px;
+  background-color: #fff;
+  padding: 3px 5px;
+  box-shadow: inset 0 3px 6px rgba(0,0,0,0.1);
+
+}
+
+.modal-close {
+  color: #aaa;
+
+  font-size: 80%;
+  position: absolute;
+  right: 0;
+  text-align: right;
+  top: 0;
+  width: 70px;
+  text-decoration: none;
+  margin-right:13px;
+}
+.modal-close:hover {
+  color: black;
+}
+.modal-window > div {
+  border-radius: 1rem;
+}
+
+.modal-window div:not(:last-of-type) {
+  margin-bottom: 15px;
+}
